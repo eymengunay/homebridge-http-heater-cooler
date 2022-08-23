@@ -72,6 +72,19 @@ class HTTPHeaterCooler {
       baseURL: this.config.endpoint,
       timeout: 5 * 1000
     })
+
+    this.loop()
+  }
+
+  loop () {
+    this.axios.get('/').then(res => {
+      this.state.currentTemperature = res.data.ambient.temperature
+    }).catch(err => {
+      this.log.error('status loop request failed')
+      this.log.error(err)
+    }).finally(() => {
+      setTimeout(this.loop.bind(this), 5 * 1000)
+    })
   }
 
   sync () {
