@@ -123,7 +123,7 @@ class HTTPHeaterCooler {
     this.log.debug('setting ' + key + ' to ' + val)
     this.state[key] = val
 
-    debounce(this.sync.bind(this), 500)()
+    debounce(this.sync.bind(this), 1000)()
   }
 
   notImplemented () {
