@@ -73,7 +73,11 @@ class HTTPHeaterCooler {
       timeout: 5 * 1000
     })
 
+    // start status loop
     this.loop()
+
+    // debounce sync fn
+    this.syncDebounce = debounce(this.sync.bind(this), 1000)
   }
 
   loop () {
@@ -123,7 +127,7 @@ class HTTPHeaterCooler {
     this.log.debug('setting ' + key + ' to ' + val)
     this.state[key] = val
 
-    debounce(this.sync.bind(this), 1000)()
+    this.syncDebounce()
   }
 
   notImplemented () {
