@@ -1,0 +1,22 @@
+{
+  "name": "@eymengunay/homebridge-http-heater-cooler",
+  "version": "0.1.0",
+  "description": "Homebridge plugin for controlling heater-cooler via HTTP.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "author": "Eymen Gunay <eymen@egunay.com>",
+  "license": "ISC",
+  "engines": {
+    "homebridge": ">=0.4.50",
+    "node": ">=12.13.0"
+  },
+  "dependencies": {
+    "axios": "^0.25.0"
+  }
+}
