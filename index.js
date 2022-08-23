@@ -94,6 +94,11 @@ class HTTPHeaterCooler {
     // params power
     params.power = this.state.active === this.Characteristic.Active.ACTIVE ? 1 : 0
 
+    // send only power param on inactive
+    if (this.state.active === this.Characteristic.Active.INACTIVE) {
+      return this.axios.get('/remote', { params })
+    }
+
     // params mode
     if (this.state.targetHeaterCoolerState === this.Characteristic.TargetHeaterCoolerState.COOL) {
       params.mode = 1
